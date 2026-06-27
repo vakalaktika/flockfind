@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="FlockFind compares flamingo peel-and-stick wallpaper by quality, trusted reviews, and real cost per square foot."
+    />
+    <title>FlockFind — Flamingo wallpaper, fairly compared</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="FlockFind home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40">
+            <path d="M23.8 8.1c4.6 0 8 3.6 8 8 0 2.7-1.3 5.1-3.5 6.6-2.5 1.8-3.8 3.2-3.8 6.2v3.2h-3.2V28c0-3.8 1.7-6.4 5.1-8.7 1.2-.8 1.9-1.9 1.9-3.2 0-2.1-1.7-3.8-4.3-3.8-3.6 0-6.4 2.8-7.6 7.3l-3.8-1c1.5-6.4 5.7-10.5 11.2-10.5Z"/>
+            <circle cx="25.5" cy="14.7" r="1.1"/>
+            <path d="M28.8 17.2 36 19.8l-7.4 1.4c.6-1.2.7-2.6.2-4Z"/>
+            <path d="M20.6 31.1h10.1v2.5H20.6zM17.4 26.8h3.1v8.7h-3.1z"/>
+          </svg>
+        </span>
+        <span>FlockFind</span>
+      </a>
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="#results">Top picks</a>
+        <a href="#calculator">Wall calculator</a>
+        <button class="nav-button" type="button" data-open-score>How we score</button>
+      </nav>
+      <a class="header-cta" href="#results">Find my pattern <span aria-hidden="true">↘</span></a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Smart shopping for statement walls</p>
+          <h1>Find a flamingo print <em>worth sticking with.</em></h1>
+          <p class="hero-subhead">
+            We compare quality signals, review confidence, and the price per square foot—so a charming roll
+            doesn’t turn into an expensive flock-up.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#results">See the top picks <span aria-hidden="true">→</span></a>
+            <button class="text-button" type="button" data-open-score>
+              <span class="play-icon" aria-hidden="true">i</span>
+              See our method
+            </button>
+          </div>
+          <div class="trust-row" aria-label="Catalog summary">
+            <div><strong>7</strong><span>patterns checked</span></div>
+            <div><strong>6</strong><span>quality signals</span></div>
+            <div><strong>$0.71</strong><span>best price / sq. ft.</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Our measured pick: Ballerina Pink wallpaper">
+          <div class="hero-photo-wrap">
+            <img
+              class="hero-photo"
+              src="https://tempaper.com/cdn/shop/products/fl10679-flamingo-ballerinapink-swatch_2_1020x_progressive_jpg.webp?v=1754944907"
+              alt="Ballerina Pink flamingo peel-and-stick wallpaper pattern"
+            />
+            <div class="hero-photo-shade"></div>
+            <div class="floating-card floating-card-score">
+              <span class="mini-label">Flock score</span>
+              <strong>90<span>/100</span></strong>
+              <small>Excellent match</small>
+            </div>
+            <div class="floating-card floating-card-pick">
+              <span class="mini-badge">#1 measured pick</span>
+              <strong>Ballerina Pink</strong>
+              <span class="stars" aria-label="4.4 out of 5 stars">★★★★☆</span>
+              <small>4.4 · 52 reviews</small>
+            </div>
+          </div>
+          <div class="hero-caption">
+            <span>Current front-runner</span>
+            <strong>High review confidence without the premium markup.</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="calculator-shell" id="calculator" aria-labelledby="calculator-title">
+        <div class="calculator-intro">
+          <span class="step-number">01</span>
+          <div>
+            <p class="section-kicker">Size your project</p>
+            <h2 id="calculator-title">What are we covering?</h2>
+          </div>
+        </div>
+        <div class="calculator-fields">
+          <label>
+            <span>Wall width</span>
+            <span class="input-wrap">
+              <input id="wallWidth" inputmode="decimal" type="number" min="1" max="100" step="0.5" value="12" />
+              <small>ft</small>
+            </span>
+          </label>
+          <span class="math-symbol" aria-hidden="true">×</span>
+          <label>
+            <span>Wall height</span>
+            <span class="input-wrap">
+              <input id="wallHeight" inputmode="decimal" type="number" min="1" max="30" step="0.5" value="8" />
+              <small>ft</small>
+            </span>
+          </label>
+          <span class="math-symbol" aria-hidden="true">+</span>
+          <label>
+            <span>Pattern waste</span>
+            <span class="select-wrap">
+              <select id="wasteAmount">
+                <option value="0">0%</option>
+                <option value="0.1" selected>10%</option>
+                <option value="0.15">15%</option>
+                <option value="0.2">20%</option>
+              </select>
+            </span>
+          </label>
+        </div>
+        <div class="area-result" aria-live="polite">
+          <span>Shopping area</span>
+          <strong id="areaTotal">106 sq. ft.</strong>
+          <small>including waste</small>
+        </div>
+      </section>
+
+      <section class="results-section" id="results" aria-labelledby="results-title">
+        <aside class="filter-panel" aria-label="Wallpaper filters">
+          <div class="filter-heading">
+            <span class="step-number">02</span>
+            <div>
+              <p class="section-kicker">Tune the shortlist</p>
+              <h2>What matters?</h2>
+            </div>
+          </div>
+
+          <div class="preset-row" role="group" aria-label="Budget presets">
+            <button class="preset active" type="button" data-preset="moderate">Moderate</button>
+            <button class="preset" type="button" data-preset="strict">Under $1.25</button>
+            <button class="preset" type="button" data-preset="all">Show all</button>
+          </div>
+
+          <div class="filter-group">
+            <div class="filter-label">
+              <label for="priceFilter">Max price / sq. ft.</label>
+              <strong id="priceValue">$1.75</strong>
+            </div>
+            <input id="priceFilter" type="range" min="0.5" max="9" value="1.75" step="0.05" />
+            <div class="range-labels"><span>$0.50</span><span>$9+</span></div>
+          </div>
+
+          <div class="filter-group">
+            <div class="filter-label">
+              <label for="ratingFilter">Minimum rating</label>
+              <strong id="ratingValue">4.2+</strong>
+            </div>
+            <input id="ratingFilter" type="range" min="0" max="5" value="4.2" step="0.1" />
+            <div class="range-labels"><span>Any</span><span>5.0</span></div>
+          </div>
+
+          <div class="filter-group switch-group">
+            <label class="switch-row">
+              <span>
+                <strong>Bathroom-friendly</strong>
+                <small>Moisture or steam rated</small>
+              </span>
+              <input id="bathroomFilter" type="checkbox" />
+              <span class="switch" aria-hidden="true"></span>
+            </label>
+            <label class="switch-row">
+              <span>
+                <strong>Established reviews</strong>
+                <small>10+ published ratings</small>
+              </span>
+              <input id="reviewFilter" type="checkbox" />
+              <span class="switch" aria-hidden="true"></span>
+            </label>
+          </div>
+
+          <button class="reset-button" id="resetFilters" type="button">Reset filters</button>
+
+          <div class="filter-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm0-14v5m0 3.5v.5" />
+            </svg>
+            <p><strong>Moderate</strong> is set to $1.75 / sq. ft. or less. Shipping and tax are not included.</p>
+          </div>
+        </aside>
+
+        <div class="results-content">
+          <div class="results-heading">
+            <div>
+              <p class="section-kicker">Ranked for value, not hype</p>
+              <h2 id="results-title">Top matches <span id="resultCount">(4)</span></h2>
+            </div>
+            <label class="sort-control">
+              <span>Sort by</span>
+              <select id="sortSelect">
+                <option value="score">Flock score</option>
+                <option value="price">Lowest $ / sq. ft.</option>
+                <option value="rating">Highest rating</option>
+                <option value="reviews">Most reviewed</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="active-summary" id="activeSummary" aria-live="polite">
+            <span>Moderate price</span>
+            <span>4.2+ stars</span>
+          </div>
+
+          <div class="product-grid" id="productGrid"></div>
+
+          <div class="empty-state" id="emptyState" hidden>
+            <span aria-hidden="true">🦩</span>
+            <h3>No birds in this price range.</h3>
+            <p>Loosen one filter and the flock should return.</p>
+            <button class="primary-button" type="button" id="emptyReset">Reset filters</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="method-strip" aria-labelledby="method-title">
+        <div>
+          <p class="section-kicker">The Flock score</p>
+          <h2 id="method-title">Pretty is the baseline. <em>Proof picks the winner.</em></h2>
+        </div>
+        <div class="method-points">
+          <div>
+            <span>01</span>
+            <strong>Review confidence</strong>
+            <p>Ratings are adjusted for sample size, so two perfect reviews don’t outweigh fifty solid ones.</p>
+          </div>
+          <div>
+            <span>02</span>
+            <strong>Material quality</strong>
+            <p>We reward repositionability, washability, clean removal, moisture resistance, and clear specs.</p>
+          </div>
+          <div>
+            <span>03</span>
+            <strong>Real project cost</strong>
+            <p>Every roll is normalized to square feet, then calculated for your wall plus pattern waste.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40">
+            <path d="M23.8 8.1c4.6 0 8 3.6 8 8 0 2.7-1.3 5.1-3.5 6.6-2.5 1.8-3.8 3.2-3.8 6.2v3.2h-3.2V28c0-3.8 1.7-6.4 5.1-8.7 1.2-.8 1.9-1.9 1.9-3.2 0-2.1-1.7-3.8-4.3-3.8-3.6 0-6.4 2.8-7.6 7.3l-3.8-1c1.5-6.4 5.7-10.5 11.2-10.5Z"/>
+            <circle cx="25.5" cy="14.7" r="1.1"/>
+            <path d="M28.8 17.2 36 19.8l-7.4 1.4c.6-1.2.7-2.6.2-4Z"/>
+            <path d="M20.6 31.1h10.1v2.5H20.6zM17.4 26.8h3.1v8.7h-3.1z"/>
+          </svg>
+        </span>
+        <span>FlockFind</span>
+      </a>
+      <p>
+        Prices and ratings checked June 27, 2026. Retail listings change; verify the final price, stock, dye lot,
+        and return policy before buying.
+      </p>
+      <button type="button" data-open-score>Scoring & transparency</button>
+    </footer>
+
+    <div class="compare-dock" id="compareDock" aria-live="polite" hidden>
+      <div>
+        <span class="compare-icon" aria-hidden="true">⇄</span>
+        <p><strong id="compareCount">0 patterns selected</strong><small>Choose up to 3 to compare</small></p>
+      </div>
+      <div class="compare-thumbs" id="compareThumbs"></div>
+      <div class="compare-actions">
+        <button class="clear-button" id="clearCompare" type="button">Clear</button>
+        <button class="primary-button compact" id="openCompare" type="button">Compare</button>
+      </div>
+    </div>
+
+    <dialog class="app-dialog compare-dialog" id="compareDialog">
+      <div class="dialog-heading">
+        <div>
+          <p class="section-kicker">Side by side</p>
+          <h2>Your shortlist</h2>
+        </div>
+        <button class="close-dialog" type="button" aria-label="Close comparison">×</button>
+      </div>
+      <div id="compareTable"></div>
+    </dialog>
+
+    <dialog class="app-dialog score-dialog" id="scoreDialog">
+      <div class="dialog-heading">
+        <div>
+          <p class="section-kicker">No mystery math</p>
+          <h2>How the Flock score works</h2>
+        </div>
+        <button class="close-dialog" type="button" aria-label="Close scoring explanation">×</button>
+      </div>
+      <p class="dialog-lede">
+        The score is a shopping aid, not a lab test. It combines three visible inputs and deliberately gives
+        established reviews more weight than tiny samples.
+      </p>
+      <div class="score-breakdown">
+        <div><span>46%</span><strong>Review evidence</strong><p>Bayesian-adjusted rating plus a confidence bonus for review volume.</p></div>
+        <div><span>34%</span><strong>Quality signals</strong><p>Material, clean removal, repositionability, washability, moisture rating, and specification clarity.</p></div>
+        <div><span>20%</span><strong>Price fit</strong><p>Rewards useful coverage near the moderate-price sweet spot and penalizes large markups.</p></div>
+      </div>
+      <div class="transparency-note">
+        <strong>Good to know</strong>
+        <p>Quality scores use claims visible in each listing. FlockFind does not receive retailer commissions in this prototype.</p>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
