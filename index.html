@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="FlockFind compares flamingo peel-and-stick wallpaper by quality, trusted reviews, and real cost per square foot."
+      content="FlockFind compares flamingo and wild-bird peel-and-stick wallpaper sold in the United States by quality, review evidence, and real cost per square foot."
     />
-    <title>FlockFind — Flamingo wallpaper, fairly compared</title>
+    <title>FlockFind — Bird wallpaper, fairly compared</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./catalog.js" defer></script>
     <script src="./app.js" defer></script>
   </head>
-  <body>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="FlockFind home">
         <span class="brand-mark" aria-hidden="true">
@@ -25,6 +27,7 @@
         <span>FlockFind</span>
       </a>
       <nav class="top-nav" aria-label="Main navigation">
+        <a href="#collections">Choose a bird</a>
         <a href="#results">Top picks</a>
         <a href="#calculator">Wall calculator</a>
         <button class="nav-button" type="button" data-open-score>How we score</button>
@@ -32,14 +35,14 @@
       <a class="header-cta" href="#results">Find my pattern <span aria-hidden="true">↘</span></a>
     </header>
 
-    <main id="top">
+    <main id="main-content" tabindex="-1">
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow"><span></span> Smart shopping for statement walls</p>
-          <h1>Find a flamingo print <em>worth sticking with.</em></h1>
+          <h1>Find a bird print <em>worth sticking with.</em></h1>
           <p class="hero-subhead">
-            We compare quality signals, review confidence, and the price per square foot—so a charming roll
-            doesn’t turn into an expensive flock-up.
+            Compare flamingo and wild-bird wallpaper sold in the U.S. by material quality, review confidence,
+            and price per square foot.
           </p>
           <div class="hero-actions">
             <a class="primary-button" href="#results">See the top picks <span aria-hidden="true">→</span></a>
@@ -49,9 +52,9 @@
             </button>
           </div>
           <div class="trust-row" aria-label="Catalog summary">
-            <div><strong>7</strong><span>patterns checked</span></div>
-            <div><strong>6</strong><span>quality signals</span></div>
-            <div><strong>$0.71</strong><span>best price / sq. ft.</span></div>
+            <div><strong id="catalogCount">81</strong><span>patterns checked</span></div>
+            <div><strong id="manufacturerCount">20+</strong><span>manufacturers</span></div>
+            <div><strong id="retailerCount">9</strong><span>U.S. retailers</span></div>
           </div>
         </div>
 
@@ -82,9 +85,37 @@
         </div>
       </section>
 
+      <section class="collection-switcher" id="collections" aria-labelledby="collection-title">
+        <div class="collection-heading">
+          <span class="step-number" aria-hidden="true">01</span>
+          <div>
+            <p class="section-kicker">Choose the flock</p>
+            <h2 id="collection-title">Which birds are you looking for?</h2>
+          </div>
+        </div>
+        <fieldset class="collection-options">
+          <legend class="visually-hidden">Bird collection</legend>
+          <label class="collection-option">
+            <input type="radio" name="birdCollection" value="flamingo" checked />
+            <span class="collection-icon" aria-hidden="true">F</span>
+            <span><strong>Flamingos</strong><small><span id="flamingoCount">36</span> distinct patterns</small></span>
+          </label>
+          <label class="collection-option">
+            <input type="radio" name="birdCollection" value="wild-bird" />
+            <span class="collection-icon wild" aria-hidden="true">W</span>
+            <span><strong>Wild birds</strong><small><span id="wildBirdCount">45</span> tropical and modern patterns</small></span>
+          </label>
+          <label class="collection-option">
+            <input type="radio" name="birdCollection" value="all" />
+            <span class="collection-icon all" aria-hidden="true">A</span>
+            <span><strong>All birds</strong><small>Browse the full U.S. catalog</small></span>
+          </label>
+        </fieldset>
+      </section>
+
       <section class="calculator-shell" id="calculator" aria-labelledby="calculator-title">
         <div class="calculator-intro">
-          <span class="step-number">01</span>
+          <span class="step-number" aria-hidden="true">02</span>
           <div>
             <p class="section-kicker">Size your project</p>
             <h2 id="calculator-title">What are we covering?</h2>
@@ -129,7 +160,7 @@
       <section class="results-section" id="results" aria-labelledby="results-title">
         <aside class="filter-panel" aria-label="Wallpaper filters">
           <div class="filter-heading">
-            <span class="step-number">02</span>
+            <span class="step-number" aria-hidden="true">03</span>
             <div>
               <p class="section-kicker">Tune the shortlist</p>
               <h2>What matters?</h2>
@@ -137,9 +168,9 @@
           </div>
 
           <div class="preset-row" role="group" aria-label="Budget presets">
-            <button class="preset active" type="button" data-preset="moderate">Moderate</button>
-            <button class="preset" type="button" data-preset="strict">Under $1.25</button>
-            <button class="preset" type="button" data-preset="all">Show all</button>
+            <button class="preset active" type="button" data-preset="moderate" aria-pressed="true">Moderate</button>
+            <button class="preset" type="button" data-preset="strict" aria-pressed="false">Under $1.25</button>
+            <button class="preset" type="button" data-preset="all" aria-pressed="false">Show all</button>
           </div>
 
           <div class="filter-group">
@@ -147,17 +178,35 @@
               <label for="priceFilter">Max price / sq. ft.</label>
               <strong id="priceValue">$1.75</strong>
             </div>
-            <input id="priceFilter" type="range" min="0.5" max="9" value="1.75" step="0.05" />
+            <input id="priceFilter" type="range" min="0.5" max="9" value="1.75" step="0.05" aria-describedby="priceHelp" />
             <div class="range-labels"><span>$0.50</span><span>$9+</span></div>
+            <p class="filter-help" id="priceHelp">Products without verified coverage remain visible unless “Verified price only” is selected.</p>
           </div>
 
           <div class="filter-group">
             <div class="filter-label">
               <label for="ratingFilter">Minimum rating</label>
-              <strong id="ratingValue">4.2+</strong>
+              <strong id="ratingValue">Any</strong>
             </div>
-            <input id="ratingFilter" type="range" min="0" max="5" value="4.2" step="0.1" />
+            <input id="ratingFilter" type="range" min="0" max="5" value="0" step="0.1" aria-describedby="ratingHelp" />
             <div class="range-labels"><span>Any</span><span>5.0</span></div>
+            <p class="filter-help" id="ratingHelp">Unrated products stay visible when the minimum is set to “Any.”</p>
+          </div>
+
+          <fieldset class="filter-group checkbox-filter">
+            <legend>Aesthetic</legend>
+            <label><input type="checkbox" name="vibe" value="tropical" /> Tropical</label>
+            <label><input type="checkbox" name="vibe" value="jungle" /> Jungle</label>
+            <label><input type="checkbox" name="vibe" value="mid-century" /> Mid-century modern</label>
+          </fieldset>
+
+          <div class="filter-group retailer-filter">
+            <label for="retailerFilter">Retailer</label>
+            <span class="select-wrap">
+              <select id="retailerFilter">
+                <option value="all">All U.S. retailers</option>
+              </select>
+            </span>
           </div>
 
           <div class="filter-group switch-group">
@@ -177,6 +226,22 @@
               <input id="reviewFilter" type="checkbox" />
               <span class="switch" aria-hidden="true"></span>
             </label>
+            <label class="switch-row">
+              <span>
+                <strong>Verified price only</strong>
+                <small>Known roll price and coverage</small>
+              </span>
+              <input id="priceKnownFilter" type="checkbox" />
+              <span class="switch" aria-hidden="true"></span>
+            </label>
+            <label class="switch-row">
+              <span>
+                <strong>Made in USA</strong>
+                <small>Manufacturer explicitly states U.S. production</small>
+              </span>
+              <input id="madeInUSAFilter" type="checkbox" />
+              <span class="switch" aria-hidden="true"></span>
+            </label>
           </div>
 
           <button class="reset-button" id="resetFilters" type="button">Reset filters</button>
@@ -185,7 +250,7 @@
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm0-14v5m0 3.5v.5" />
             </svg>
-            <p><strong>Moderate</strong> is set to $1.75 / sq. ft. or less. Shipping and tax are not included.</p>
+            <p><strong>U.S. catalog:</strong> every link uses a U.S. retailer or manufacturer storefront. Manufacturing origin is labeled separately.</p>
           </div>
         </aside>
 
@@ -193,7 +258,7 @@
           <div class="results-heading">
             <div>
               <p class="section-kicker">Ranked for value, not hype</p>
-              <h2 id="results-title">Top matches <span id="resultCount">(4)</span></h2>
+              <h2 id="results-title">Top matches <span id="resultCount">(0)</span></h2>
             </div>
             <label class="sort-control">
               <span>Sort by</span>
@@ -208,18 +273,32 @@
 
           <div class="active-summary" id="activeSummary" aria-live="polite">
             <span>Moderate price</span>
-            <span>4.2+ stars</span>
           </div>
 
+          <p class="results-status visually-hidden" id="resultsStatus" role="status" aria-live="polite" tabindex="-1"></p>
           <div class="product-grid" id="productGrid"></div>
+          <button class="show-more-button" id="showMore" type="button" hidden>Show 12 more patterns</button>
 
           <div class="empty-state" id="emptyState" hidden>
-            <span aria-hidden="true">🦩</span>
+            <span class="empty-icon" aria-hidden="true">F</span>
             <h3>No birds in this price range.</h3>
             <p>Loosen one filter and the flock should return.</p>
             <button class="primary-button" type="button" id="emptyReset">Reset filters</button>
           </div>
         </div>
+      </section>
+
+      <section class="accessibility-strip" aria-labelledby="accessibility-title">
+        <div>
+          <p class="section-kicker">Accessibility standard</p>
+          <h2 id="accessibility-title">Built toward WCAG 2.2 Level AA.</h2>
+        </div>
+        <p>
+          Keyboard operation, visible focus, semantic controls, live result announcements, reduced-motion support,
+          responsive reflow, text alternatives, and contrast-safe states are included. Retailer pages open separately
+          and have their own accessibility policies.
+        </p>
+        <a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noreferrer">Read the WCAG 2.2 standard <span class="visually-hidden">(opens in a new tab)</span> ↗</a>
       </section>
 
       <section class="method-strip" aria-labelledby="method-title">
@@ -260,10 +339,13 @@
         <span>FlockFind</span>
       </a>
       <p>
-        Prices and ratings checked June 27, 2026. Retail listings change; verify the final price, stock, dye lot,
-        and return policy before buying.
+        U.S. listings checked June 27, 2026. Retail data changes; verify price, stock, material, dye lot, shipping,
+        and returns before buying.
       </p>
-      <button type="button" data-open-score>Scoring & transparency</button>
+      <div class="footer-actions">
+        <button type="button" data-open-score>Scoring & transparency</button>
+        <a href="#accessibility-title">Accessibility</a>
+      </div>
     </footer>
 
     <div class="compare-dock" id="compareDock" aria-live="polite" hidden>
@@ -278,28 +360,28 @@
       </div>
     </div>
 
-    <dialog class="app-dialog compare-dialog" id="compareDialog">
+    <dialog class="app-dialog compare-dialog" id="compareDialog" aria-labelledby="compare-dialog-title">
       <div class="dialog-heading">
         <div>
           <p class="section-kicker">Side by side</p>
-          <h2>Your shortlist</h2>
+          <h2 id="compare-dialog-title">Your shortlist</h2>
         </div>
         <button class="close-dialog" type="button" aria-label="Close comparison">×</button>
       </div>
       <div id="compareTable"></div>
     </dialog>
 
-    <dialog class="app-dialog score-dialog" id="scoreDialog">
+    <dialog class="app-dialog score-dialog" id="scoreDialog" aria-labelledby="score-dialog-title">
       <div class="dialog-heading">
         <div>
           <p class="section-kicker">No mystery math</p>
-          <h2>How the Flock score works</h2>
+          <h2 id="score-dialog-title">How the Flock score works</h2>
         </div>
         <button class="close-dialog" type="button" aria-label="Close scoring explanation">×</button>
       </div>
       <p class="dialog-lede">
         The score is a shopping aid, not a lab test. It combines three visible inputs and deliberately gives
-        established reviews more weight than tiny samples.
+        established reviews more weight than tiny samples. Missing price or rating evidence is never estimated.
       </p>
       <div class="score-breakdown">
         <div><span>46%</span><strong>Review evidence</strong><p>Bayesian-adjusted rating plus a confidence bonus for review volume.</p></div>
@@ -308,7 +390,7 @@
       </div>
       <div class="transparency-note">
         <strong>Good to know</strong>
-        <p>Quality scores use claims visible in each listing. FlockFind does not receive retailer commissions in this prototype.</p>
+        <p>“Verified” means price and coverage or product-level review evidence was visible when checked. Marketplace sample prices and seller-wide reviews are not used as product evidence.</p>
       </div>
     </dialog>
 
