@@ -496,7 +496,7 @@ a {
   grid-template-columns: 1.15fr 2fr 0.7fr;
   align-items: center;
   gap: 35px;
-  margin: -71px auto 0;
+  margin: 24px auto 0;
   padding: 27px 32px;
   background: var(--paper);
   box-shadow: var(--shadow);
@@ -1558,6 +1558,8 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .collection-switcher {
+  position: relative;
+  z-index: 4;
   width: min(1180px, calc(100% - 48px));
   display: grid;
   grid-template-columns: minmax(250px, 0.78fr) minmax(0, 1.7fr);
@@ -2043,7 +2045,7 @@ input[type="range"]::-moz-range-thumb {
     width: calc(100% - 28px);
     grid-template-columns: 1fr;
     gap: 22px;
-    margin-top: -77px;
+    margin-top: 24px;
     padding: 24px 20px;
   }
 
